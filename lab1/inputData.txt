@@ -1,0 +1,3 @@
+2,3,1    two root
+1,-6,9   one root
+1,1,1    non root

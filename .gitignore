@@ -1,0 +1,7 @@
+/lab1/*.suo
+*.suo
+*.sln
+bin
+obj
+Properties
+*.csproj
