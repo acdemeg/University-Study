@@ -17,7 +17,7 @@ namespace lab1
             c = Convert.ToDouble(Console.ReadLine());
 
             Task task = new Task(a, b, c);
-            IDecideAble<Task> tasker = new Tasker();
+            IDecideAble<Task, double[]> tasker = new Tasker();
             try
             {
                 var result = tasker.Calculation(task);

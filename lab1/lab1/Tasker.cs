@@ -2,7 +2,7 @@
 
 namespace lab1
 {
-    class Tasker : IDecideAble<Task>
+    class Tasker : IDecideAble<Task, double[]>
     {
         public double[] Calculation (Task kofficients)
         {

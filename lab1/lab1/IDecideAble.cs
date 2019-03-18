@@ -1,7 +1,7 @@
 ﻿namespace lab1
 {
-    interface IDecideAble<T>
+    interface IDecideAble<T,V>
     {
-       double[] Calculation (T kofficients);
+       V Calculation (T kofficients);
     }
 }
