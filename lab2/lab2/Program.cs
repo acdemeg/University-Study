@@ -14,6 +14,8 @@ namespace lab2
 
         static void Main(string[] args)
         {
+            CheckPoint.CheckPointEventInstance += InformationView;
+            
             Console.WriteLine();
             Console.WriteLine(" Number\t\tColor\t\tBodyType\tHasPassanger\tSpeed");
             Console.WriteLine();
@@ -57,6 +59,27 @@ namespace lab2
                     return new Bus(listColor[random.Next(listColor.Length)], listNumbersAuto[random.Next(listNumbersAuto.Length)], hasPassenger);
                 default: return null;
             }
+        }
+       
+        //обработчик события
+        public static void InformationView(CheckPointInfo checkPoinInfo)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(" " + checkPoinInfo.LicencePlateNumber);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("\t\t" + checkPoinInfo.Color);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\t\t" + checkPoinInfo.BodyTypeMessage);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("\t\t" + checkPoinInfo.HasPassenger);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\t\t" + checkPoinInfo.CurrentSpeed);
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("\t" + checkPoinInfo.MessageOverSpeed);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\t\t" + checkPoinInfo.MessageStolen);
+            Console.ResetColor();
+            Console.WriteLine();
         }
     }
 }
