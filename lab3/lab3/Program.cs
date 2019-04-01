@@ -7,15 +7,18 @@ namespace lab3
     
     class Program
     {
-        static void Main(string[] args)
+        private const int MAX_BEANS = 100;
+
+        static int Main(string[] args)
         {
              Dictionary<CoffeeSelection, CoffeeBean> beans = new Dictionary<CoffeeSelection,CoffeeBean>();
-             beans.Add(CoffeeSelection.Cappuccino, new CoffeeBean("Arabica", 100));
-             beans.Add(CoffeeSelection.Espresso, new CoffeeBean("Robusta", 100));
-             beans.Add(CoffeeSelection.FilterCoffee, new CoffeeBean("Liberica", 100));
+             beans.Add(CoffeeSelection.Cappuccino, new CoffeeBean("Arabica", MAX_BEANS));
+             beans.Add(CoffeeSelection.Espresso, new CoffeeBean("Robusta", MAX_BEANS));
+             beans.Add(CoffeeSelection.FilterCoffee, new CoffeeBean("Liberica", MAX_BEANS));
              CoffeeMachine coffeeMachine = new CoffeeMachine(beans);
              do
              {
+
                  try
                  {
 
@@ -34,7 +37,19 @@ namespace lab3
                          Console.WriteLine("Grains residue: Arabica {0}, Robusta {1}, Liberica {2} ", beans[CoffeeSelection.Cappuccino].Quantity,
                          beans[CoffeeSelection.Espresso].Quantity, beans[CoffeeSelection.FilterCoffee].Quantity);
                          Console.WriteLine();
-                         Console.WriteLine("In order to exit press key ESC or ENTER to continue");
+                         Console.WriteLine("In order to exit press key ESC and ENTER");
+                         Console.WriteLine("");
+                         Console.WriteLine("You want add coffeebean into CoffeeMachine ?  y - yes  anyKey - no");
+
+                         //add of coffeeBeans to CoffeeMachine
+                         if (Console.ReadKey().Key == ConsoleKey.Y)
+                         {
+                             addBeans(beans);
+                         }
+                         else if (Console.ReadKey().Key == ConsoleKey.Escape)
+                         {
+                             return 0;
+                         }
                      }
                      while (Console.ReadKey().Key != ConsoleKey.Escape);
                  }
@@ -51,10 +66,10 @@ namespace lab3
                  } 
             }
             while (Console.ReadKey().Key != ConsoleKey.Escape);
-            
+             return 0;
          } 
 
-        public static int getNumber (int max)
+        public static int getNumber(int max)
         {
            Console.Write("\nChoose Coffee: ");
            string strNumber = Console.ReadLine();
@@ -90,7 +105,27 @@ namespace lab3
                }   
            }
            throw new CoffeeExeption("Integer expected");   
-        }            
+        }
+
+        public static void addBeans(Dictionary<CoffeeSelection, CoffeeBean> beans)
+        {
+            Console.WriteLine("Select type: 1 - Arabica, 2 - Robusta, 3 - Liberica");
+            string strNumber = Console.ReadLine();
+            Console.WriteLine("Entered quantity less than 100");
+            string quantityBeans = Console.ReadLine();
+            int intQuantityBeans;
+            Int32.TryParse(quantityBeans, out intQuantityBeans);
+            switch (strNumber)
+            {
+                case "1": beans[CoffeeSelection.Cappuccino].Quantity = intQuantityBeans;
+                    break;
+                case "2": beans[CoffeeSelection.Espresso].Quantity = intQuantityBeans;
+                    break;
+                case "3": beans[CoffeeSelection.FilterCoffee].Quantity = intQuantityBeans;
+                    break;
+                default: throw new CoffeeExeption("Choose right number");
+            }
+        }
             
     }
 }

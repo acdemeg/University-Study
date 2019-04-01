@@ -10,15 +10,30 @@ namespace lab3
 
         public CoffeeMachine(Dictionary<CoffeeSelection, CoffeeBean> beans)
         {
-            _beans = new Dictionary<CoffeeSelection, CoffeeBean>(beans);
+            //_beans = new Dictionary<CoffeeSelection, CoffeeBean>(beans);
+            _beans = beans;
             _grinderUnit = new GrinderUnit();
             _brewingUnit = new BrewingUnit();
         }
+        
+        ////add a beans to coffee Machine
+        //public bool addBeas(CoffeeSelection coffeeSelection, CoffeeBean coffeeBean)
+        //{   
+        //    // check have if same key
+        //    if (_beans.ContainsKey(coffeeSelection))
+        //    {   
+        //        //remove old record
+        //        _beans.Remove(coffeeSelection);
+        //        _beans.Add(coffeeSelection, coffeeBean);
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         public Coffee BrewCoffee (CoffeeSelection coffeeSelection, int guantity)
         {   
             //get for key CoffeeBean -> get GroundCoffee -> get Coffee
-            return new BrewingUnit().Brew(coffeeSelection, new GrinderUnit().Grind(_beans[coffeeSelection], guantity)) ;
+            return _brewingUnit.Brew(coffeeSelection, _grinderUnit.Grind(_beans[coffeeSelection], guantity));
             
         }
     }
