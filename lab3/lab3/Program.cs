@@ -109,6 +109,7 @@ namespace lab3
 
         public static void addBeans(Dictionary<CoffeeSelection, CoffeeBean> beans)
         {
+            Console.WriteLine("");
             Console.WriteLine("Select type: 1 - Arabica, 2 - Robusta, 3 - Liberica");
             string strNumber = Console.ReadLine();
             Console.WriteLine("Entered quantity less than 100");
@@ -117,11 +118,11 @@ namespace lab3
             Int32.TryParse(quantityBeans, out intQuantityBeans);
             switch (strNumber)
             {
-                case "1": beans[CoffeeSelection.Cappuccino].Quantity = intQuantityBeans;
+                case "1": beans[CoffeeSelection.Cappuccino].Quantity += intQuantityBeans;
                     break;
-                case "2": beans[CoffeeSelection.Espresso].Quantity = intQuantityBeans;
+                case "2": beans[CoffeeSelection.Espresso].Quantity += intQuantityBeans;
                     break;
-                case "3": beans[CoffeeSelection.FilterCoffee].Quantity = intQuantityBeans;
+                case "3": beans[CoffeeSelection.FilterCoffee].Quantity += intQuantityBeans;
                     break;
                 default: throw new CoffeeExeption("Choose right number");
             }
