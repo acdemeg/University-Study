@@ -34,7 +34,7 @@ namespace lab2
             Console.WriteLine(" CarsCount\tBusesCount\tTruckCount\tCommonCount\tSpeedLimitBreakersCount\t\tStolenCarsCount");
             Console.WriteLine(" " + CheckPoint.Statistics.CarsCount + "\t\t" + CheckPoint.Statistics.BusesCount + "\t\t"
                 + CheckPoint.Statistics.TruckCount + "\t\t" + CheckPoint.Statistics.CommonCount + "\t\t"
-                + CheckPoint.Statistics.SpeedLimitBreakersCount + "\t\t\t\t" + CheckPoint.Statistics.StolenCarsCount);
+                + CheckPoint.Statistics.SpeedLimitBreakersCount + "\t\t\t\t" + CheckPoint.Statistics.StolenCarsCount );
 
             Console.Read();
         }
