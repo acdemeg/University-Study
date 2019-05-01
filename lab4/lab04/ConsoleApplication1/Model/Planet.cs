@@ -22,7 +22,12 @@ namespace SpaceFleet.Model
 
 		public static Planet Create(string input)
 		{
-			throw new NotImplementedException();
+            var buf = input.Split('\t');
+            var name = buf[0];
+            var x = Convert.ToDouble(buf[1]);
+            var y = Convert.ToDouble(buf[2]);
+            var need = Convert.ToInt32(buf[3]);
+            return new Planet(name, need, x, y);
 		}
 	}
 }

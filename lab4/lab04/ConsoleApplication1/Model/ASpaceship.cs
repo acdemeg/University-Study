@@ -7,8 +7,8 @@ namespace SpaceFleet.Model
 {
 	abstract class ASpaceship
 	{
-		public string Name { get; protected set; }
-		public int Capacity { get; protected set; }
+		public string Name { get; private set; }
+		public int Capacity { get; private set; }
 
 		public ASpaceship(string name, int capacity)
 		{
@@ -16,7 +16,8 @@ namespace SpaceFleet.Model
 			Capacity = capacity;
 		}
 
-		// Фабричный метод.
+        public abstract double GetRange();
+
 		public static ASpaceship Create(string input)
 		{
 			var buf = input.Split('\t');
@@ -30,7 +31,7 @@ namespace SpaceFleet.Model
 			if (buf[0] == "NearRange")
 				return new NearRangeShip(name, capacity);
 
-			throw new Exception("Неизвестное описание корабля");
+            throw new Exception("unknown type ship");
 		}
 	}
 }

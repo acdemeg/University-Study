@@ -12,25 +12,35 @@ namespace SpaceFleet
 	{
 		static void Main(string[] args)
 		{
-			var data = File.ReadAllLines("data.txt");
-			var ships = new List<ASpaceship>();
-			var planets = new List<Planet>();
-			var shipsRead = false;
+            List<ASpaceship> ships = new List<ASpaceship>();
+            List<Planet> planets = new List<Planet>();
+           
+            //create list of ships and planets
+            FillingLists(planets, ships);
+            SpacePort.LaunchOfShips(planets, ships);
+            Console.ReadKey();
+        }
 
-			foreach (var line in data)
-			{
-				if (string.IsNullOrEmpty(line))
-				{
-					shipsRead = true;
+        static void FillingLists(List<Planet> planets, List<ASpaceship> ships)
+        {
+            var data = File.ReadAllLines("data.txt");
+            var shipsRead = false;
 
-					continue;
-				}
+            foreach (var line in data)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    shipsRead = true;
 
-				if (shipsRead)
-					planets.Add(Planet.Create(line));
-				else
-					ships.Add(ASpaceship.Create(line));
-			}
-		}
+                    continue;
+                }
+
+                if (shipsRead)
+                    planets.Add(Planet.Create(line));
+                else
+                    ships.Add(ASpaceship.Create(line));
+            }
+            //planets.Sort((object1, object2) => object1.Need.CompareTo(object2.Need));
+        }
 	}
 }

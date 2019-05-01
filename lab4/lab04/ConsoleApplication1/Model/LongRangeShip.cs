@@ -7,9 +7,14 @@ namespace SpaceFleet.Model
 {
 	class LongRangeShip : ASpaceship
 	{
-		public LongRangeShip(string name, int capacity)
-			: base(name, capacity)
-		{
-		}
-	}
+        private const double LONG_RANGE = 0.001;
+
+        public LongRangeShip(string name, int capacity)
+			: base(name, capacity){}
+
+        public override double GetRange() 
+        {
+	        return LONG_RANGE;
+	    }
+    }
 }
