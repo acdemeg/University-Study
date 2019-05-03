@@ -9,6 +9,7 @@ namespace SpaceFleet.Model
 	{
 		public string Name { get; private set; }
 		public int Capacity { get; private set; }
+        public int CurrentCargo { get; set;}
 
 		public ASpaceship(string name, int capacity)
 		{

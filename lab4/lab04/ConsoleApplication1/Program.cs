@@ -17,7 +17,14 @@ namespace SpaceFleet
            
             //create list of ships and planets
             FillingLists(planets, ships);
-            SpacePort.LaunchOfShips(planets, ships);
+            int cargoNeed = planets.Sum(obj => obj.Need);
+
+            SpacePort.consoleOutputPlanetName = InformationViewAboutPlanet;
+            SpacePort.consoleOutputShipInfo = InformationViewAboutShips;
+            SpacePort.ToRegisterFlight(planets, ships);
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+            Console.WriteLine();
+            Console.WriteLine(" Total spaceShips = " + ships.Count + "\t\t" + "Total planets = " + planets.Count + "\t\t" + "All delivered cargo = " + cargoNeed);
             Console.ReadKey();
         }
 
@@ -40,7 +47,29 @@ namespace SpaceFleet
                 else
                     ships.Add(ASpaceship.Create(line));
             }
-            //planets.Sort((object1, object2) => object1.Need.CompareTo(object2.Need));
+        }
+
+        static void InformationViewAboutPlanet (string planetName)
+        {
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" " + planetName);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+        }
+
+        static void InformationViewAboutShips(ASpaceship ship, double distance)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(" " + ship.Name.PadRight(15 ,' '));
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("\t" + ship.GetType().Name);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("\t\t" + distance.ToString().PadRight(20, ' '));
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\t\t" + ship.CurrentCargo);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 	}
 }

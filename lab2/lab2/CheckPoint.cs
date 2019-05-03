@@ -6,7 +6,7 @@ namespace lab2
 {
    class CheckPoint
     {
-        // объявляем делегат и событие
+       // объявляем делегат и событие
        public delegate void ConsoleInput(CheckPointInfo checkPointInfo);
        public static event ConsoleInput CheckPointEventInstance;
 
