@@ -1,18 +1,19 @@
-﻿LongRange	300	Amigo
-MiddleRange	600	Fargo
-MiddleRange	350	Galileo 
-LongRange	225	New Horizons
+﻿NearRange	100	MESSENGER
+NearRange	150	Mariner 10
+NearRange	175	Chipmunk
+NearRange	225	Pioneer Venus
 MiddleRange	325	Pioneer 10
-MiddleRange	500	Vostok 
-LongRange	500	Voyager 2
+MiddleRange	350	Galileo
+LongRange	300	Amigo
 LongRange	250	Siber 
+LongRange	225	New Horizons
+MiddleRange	200	Viking 1    
+MiddleRange	500	Vostok
+LongRange	500	Voyager 2 
+MiddleRange	600	Fargo
 MiddleRange	450	Soyuz
 MiddleRange	550	Voyager 1
-MiddleRange	200	Viking 1    
-NearRange	100	MESSENGER
-NearRange	150	Mariner 10
-NearRange	225	Pioneer Venus
-NearRange	175	Chipmunk
+LongRange	600	Salut 1  
 
 Earth	-0,00001581307	0,0	0
 Venus	0,000007906535	0,000003162614	400
