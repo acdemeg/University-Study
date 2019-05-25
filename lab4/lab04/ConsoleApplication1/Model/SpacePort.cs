@@ -23,6 +23,8 @@ namespace SpaceFleet.Model
         public static void ToRegisterFlight(List<Planet> planets, List<ASpaceship> ships)
         {
             EvaluateDistanceToPlanets(planets);
+            ships.Sort((obj1, obj2) => obj1.Capacity.CompareTo(obj2.Capacity));
+            planets.Sort((obj1, obj2) => obj1.Need.CompareTo(obj2.Need));
 
             //rotate planets 
             foreach (Planet planet in planets)
@@ -71,18 +73,21 @@ namespace SpaceFleet.Model
         //to calculate of distance to all planets
         private static void EvaluateDistanceToPlanets(List<Planet> planets)
         {
-            double xEarth;
+            Planet Earth;
             double distance;
 
-            IEnumerator<Planet> enumerator = planets.GetEnumerator();
-            enumerator.MoveNext();
-            xEarth = enumerator.Current.X;
+            Earth = planets.Find(obj => obj.Name.Equals("Earth"));
 
-            while (enumerator.MoveNext())
+            foreach (Planet planet in planets)
             {
-                //evaluate distance 
-                distance = Math.Sqrt(Math.Pow(enumerator.Current.X - xEarth, 2) + Math.Pow(enumerator.Current.Y, 2));
-                _distanceToPlanets.Add(enumerator.Current.Name, distance);
+               if (!planet.Name.Equals("Earth"))
+               {
+                 //evaluate distance 
+                   distance = Math.Sqrt(Math.Pow(planet.X - Earth.X, 2) + Math.Pow(planet.Y - Earth.Y, 2));
+                _distanceToPlanets.Add(planet.Name, distance);
+
+               }
+                
             }
 
         }

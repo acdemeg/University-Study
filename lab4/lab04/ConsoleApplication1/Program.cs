@@ -17,6 +17,7 @@ namespace SpaceFleet
            
             //create list of ships and planets
             FillingLists(planets, ships);
+            int amountShips = ships.Count;
             int cargoNeed = planets.Sum(obj => obj.Need);
 
             SpacePort.consoleOutputPlanetName = InformationViewAboutPlanet;
@@ -24,7 +25,7 @@ namespace SpaceFleet
             SpacePort.ToRegisterFlight(planets, ships);
             Console.WriteLine("--------------------------------------------------------------------------------------");
             Console.WriteLine();
-            Console.WriteLine(" Total spaceShips = " + ships.Count + "\t\t" + "Total planets = " + planets.Count + "\t\t" + "All delivered cargo = " + cargoNeed);
+            Console.WriteLine(" Total spaceShips = " + amountShips + "\t\t" + "Total planets = " + planets.Count + "\t\t" + "All delivered cargo = " + cargoNeed);
             Console.ReadKey();
         }
 

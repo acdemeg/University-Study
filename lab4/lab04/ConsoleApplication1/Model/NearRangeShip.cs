@@ -15,7 +15,8 @@ namespace SpaceFleet.Model
         public override double GetRange()
         {
             return NEAR_RANGE;
-        }
+        
 
 	}
+}
 }
