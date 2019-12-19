@@ -27,6 +27,17 @@ namespace Учет_ВКР
             myConnection.Open();
         }
 
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -51,7 +62,7 @@ namespace Учет_ВКР
         private void button1_Click(object sender, EventArgs e)
         {
             // текст запроса
-            string query = "SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title";
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title";
             GetData(query);
         }
 
@@ -59,7 +70,7 @@ namespace Учет_ВКР
         private void button2_Click(object sender, EventArgs e)
         {
             string key = textBox1.Text;
-            string query = "SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE supervisor = " + "'" + key + "'";
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE supervisor = " + "'" + key + "'";
             GetData(query);
         }
 
@@ -67,7 +78,7 @@ namespace Учет_ВКР
         private void button3_Click(object sender, EventArgs e)
         {
             string key = textBox1.Text;
-            string query = "SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE student = " + "'" + key + "'";
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE student = " + "'" + key + "'";
             GetData(query); 
         }
 
@@ -82,7 +93,7 @@ namespace Учет_ВКР
                 return;
             }
 
-            string query = "SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE data_protection = " + key;  
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE data_protection = " + key;  
             GetData(query);   
         }
        
@@ -112,8 +123,8 @@ namespace Учет_ВКР
 
         private void GetData(string query)
         {
-            try
-            {
+            //try
+            //{
                 // создаем объект OleDbCommand для выполнения запроса к БД MS Access
                 OleDbCommand command = new OleDbCommand(query, myConnection);
 
@@ -126,18 +137,27 @@ namespace Учет_ВКР
                 // в цикле построчно читаем ответ от БД
                 while (reader.Read())
                 {
-                    string[] rows = { reader[0].ToString(), reader[1].ToString(), reader[2].ToString().Substring(0, 10), reader[3].ToString(),
-                                        reader[4].ToString(),  reader[5].ToString(), reader[6].ToString(), reader[7].ToString().Substring(0, 10), reader[8].ToString() };
+                    string[] rows = { reader[0].ToString(), 
+                                      reader[1].ToString(), 
+                                      reader[2].ToString(), 
+                                      reader[3].ToString().Substring(0, 10), 
+                                      reader[4].ToString(),
+                                      reader[5].ToString(), 
+                                      reader[6].ToString(), 
+                                      reader[7].ToString(), 
+                                      reader[8].ToString().Substring(0, 10), 
+                                      reader[9].ToString() };
+
                     dataGridView1.Rows.Add(rows);
                 }
 
                 // закрываем OleDbDataReader
                 reader.Close();
-            }
-            catch (Exception ex)
-            {
-                GetData("SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    GetData("SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title");
+            //}
             
         }
 
@@ -181,6 +201,7 @@ namespace Учет_ВКР
             }
            
         }
+
 
     }
 }
