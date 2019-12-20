@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,24 +56,26 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.idTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupNameTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.actTextBox = new System.Windows.Forms.TextBox();
+            this.titleOrganizationTextBox = new System.Windows.Forms.TextBox();
+            this.titleOrderTextBox = new System.Windows.Forms.TextBox();
+            this.supervisorTextBox = new System.Windows.Forms.TextBox();
+            this.studentTextBox = new System.Windows.Forms.TextBox();
+            this.titleWorkTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
+            this.rateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
+            this.dateProtectionTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.dateOrderTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -230,7 +233,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(12, 392);
+            this.button5.Location = new System.Drawing.Point(12, 363);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(117, 68);
             this.button5.TabIndex = 8;
@@ -240,9 +243,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 518);
+            this.textBox2.Location = new System.Drawing.Point(568, 620);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 20);
+            this.textBox2.Size = new System.Drawing.Size(225, 20);
             this.textBox2.TabIndex = 9;
             // 
             // listBox1
@@ -250,17 +253,17 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(336, 392);
+            this.listBox1.Location = new System.Drawing.Point(149, 364);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(398, 244);
+            this.listBox1.Size = new System.Drawing.Size(644, 244);
             this.listBox1.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(154, 400);
+            this.label2.Location = new System.Drawing.Point(9, 619);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 94);
+            this.label2.Size = new System.Drawing.Size(553, 23);
             this.label2.TabIndex = 11;
             this.label2.Text = "Введите в поле ниже группу, руководителя или дату в формате ГГГГ-ММ-ДД";
             // 
@@ -268,7 +271,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(12, 479);
+            this.button6.Location = new System.Drawing.Point(12, 451);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(117, 68);
             this.button6.TabIndex = 12;
@@ -280,7 +283,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(12, 562);
+            this.button7.Location = new System.Drawing.Point(12, 540);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(117, 68);
             this.button7.TabIndex = 13;
@@ -291,9 +294,9 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(266, 357);
+            this.label3.Location = new System.Drawing.Point(216, 341);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(468, 25);
+            this.label3.Size = new System.Drawing.Size(468, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Поле формирования отчета (группа, руководитель, дата защиты)";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -302,161 +305,185 @@
             // 
             this.button8.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(468, 338);
+            this.button8.Location = new System.Drawing.Point(414, 338);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(117, 68);
             this.button8.TabIndex = 17;
             this.button8.Text = "Обновить запись";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(236, 338);
+            this.button9.Location = new System.Drawing.Point(219, 338);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(117, 68);
             this.button9.TabIndex = 16;
             this.button9.Text = "Удалить запись";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(6, 338);
+            this.button10.Location = new System.Drawing.Point(6, 344);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(117, 68);
             this.button10.TabIndex = 15;
             this.button10.Text = "Добавить запись";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // maskedTextBox1
+            // idTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(419, 287);
-            this.maskedTextBox1.Mask = "00000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(166, 24);
-            this.maskedTextBox1.TabIndex = 18;
-            this.maskedTextBox1.ValidatingType = typeof(int);
+            this.idTextBox.Location = new System.Drawing.Point(460, 282);
+            this.idTextBox.Mask = "00000";
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(67, 24);
+            this.idTextBox.TabIndex = 18;
+            this.idTextBox.ValidatingType = typeof(int);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.groupNameTextBox);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.actTextBox);
+            this.groupBox1.Controls.Add(this.titleOrganizationTextBox);
+            this.groupBox1.Controls.Add(this.titleOrderTextBox);
+            this.groupBox1.Controls.Add(this.supervisorTextBox);
+            this.groupBox1.Controls.Add(this.studentTextBox);
+            this.groupBox1.Controls.Add(this.titleWorkTextBox);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.maskedTextBox10);
+            this.groupBox1.Controls.Add(this.rateTextBox);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.maskedTextBox9);
+            this.groupBox1.Controls.Add(this.dateProtectionTextBox);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.maskedTextBox4);
+            this.groupBox1.Controls.Add(this.dateOrderTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(756, 236);
+            this.groupBox1.Location = new System.Drawing.Point(810, 236);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(591, 412);
+            this.groupBox1.Size = new System.Drawing.Size(537, 412);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Операции с данными";
             // 
-            // textBox8
+            // groupNameTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(419, 250);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(166, 24);
-            this.textBox8.TabIndex = 42;
+            this.groupNameTextBox.Location = new System.Drawing.Point(432, 94);
+            this.groupNameTextBox.Name = "groupNameTextBox";
+            this.groupNameTextBox.Size = new System.Drawing.Size(94, 24);
+            this.groupNameTextBox.TabIndex = 44;
+            this.groupNameTextBox.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
-            // textBox7
+            // label4
             // 
-            this.textBox7.Location = new System.Drawing.Point(6, 250);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(397, 24);
-            this.textBox7.TabIndex = 41;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(432, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 18);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Группа";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox6
+            // actTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 202);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(468, 24);
-            this.textBox6.TabIndex = 40;
+            this.actTextBox.Location = new System.Drawing.Point(361, 250);
+            this.actTextBox.Name = "actTextBox";
+            this.actTextBox.Size = new System.Drawing.Size(166, 24);
+            this.actTextBox.TabIndex = 42;
             // 
-            // textBox5
+            // titleOrganizationTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 149);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(468, 24);
-            this.textBox5.TabIndex = 39;
+            this.titleOrganizationTextBox.Location = new System.Drawing.Point(6, 250);
+            this.titleOrganizationTextBox.Name = "titleOrganizationTextBox";
+            this.titleOrganizationTextBox.Size = new System.Drawing.Size(349, 24);
+            this.titleOrganizationTextBox.TabIndex = 41;
             // 
-            // textBox4
+            // titleOrderTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(504, 24);
-            this.textBox4.TabIndex = 38;
+            this.titleOrderTextBox.Location = new System.Drawing.Point(6, 202);
+            this.titleOrderTextBox.Name = "titleOrderTextBox";
+            this.titleOrderTextBox.Size = new System.Drawing.Size(420, 24);
+            this.titleOrderTextBox.TabIndex = 40;
             // 
-            // textBox3
+            // supervisorTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 46);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(579, 24);
-            this.textBox3.TabIndex = 22;
+            this.supervisorTextBox.Location = new System.Drawing.Point(6, 148);
+            this.supervisorTextBox.Name = "supervisorTextBox";
+            this.supervisorTextBox.Size = new System.Drawing.Size(420, 24);
+            this.supervisorTextBox.TabIndex = 39;
+            // 
+            // studentTextBox
+            // 
+            this.studentTextBox.Location = new System.Drawing.Point(6, 94);
+            this.studentTextBox.Name = "studentTextBox";
+            this.studentTextBox.Size = new System.Drawing.Size(420, 24);
+            this.studentTextBox.TabIndex = 38;
+            // 
+            // titleWorkTextBox
+            // 
+            this.titleWorkTextBox.Location = new System.Drawing.Point(6, 46);
+            this.titleWorkTextBox.Name = "titleWorkTextBox";
+            this.titleWorkTextBox.Size = new System.Drawing.Size(456, 24);
+            this.titleWorkTextBox.TabIndex = 22;
             // 
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label14.ForeColor = System.Drawing.Color.Crimson;
-            this.label14.Location = new System.Drawing.Point(6, 287);
+            this.label14.Location = new System.Drawing.Point(6, 285);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(397, 48);
+            this.label14.Size = new System.Drawing.Size(420, 48);
             this.label14.TabIndex = 22;
             this.label14.Text = "Введите id-записи (обязательно для заполнения только для удаления и обновления)";
             // 
-            // maskedTextBox10
+            // rateTextBox
             // 
-            this.maskedTextBox10.Location = new System.Drawing.Point(528, 94);
-            this.maskedTextBox10.Mask = "00000";
-            this.maskedTextBox10.Name = "maskedTextBox10";
-            this.maskedTextBox10.Size = new System.Drawing.Size(57, 24);
-            this.maskedTextBox10.TabIndex = 37;
-            this.maskedTextBox10.ValidatingType = typeof(int);
+            this.rateTextBox.Location = new System.Drawing.Point(468, 46);
+            this.rateTextBox.Mask = "00000";
+            this.rateTextBox.Name = "rateTextBox";
+            this.rateTextBox.Size = new System.Drawing.Size(57, 24);
+            this.rateTextBox.TabIndex = 37;
+            this.rateTextBox.ValidatingType = typeof(int);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(525, 73);
+            this.label13.Location = new System.Drawing.Point(465, 25);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 18);
             this.label13.TabIndex = 36;
             this.label13.Text = "Оценка";
             // 
-            // maskedTextBox9
+            // dateProtectionTextBox
             // 
-            this.maskedTextBox9.Location = new System.Drawing.Point(488, 149);
-            this.maskedTextBox9.Mask = "0000-00-00";
-            this.maskedTextBox9.Name = "maskedTextBox9";
-            this.maskedTextBox9.Size = new System.Drawing.Size(97, 24);
-            this.maskedTextBox9.TabIndex = 35;
+            this.dateProtectionTextBox.Location = new System.Drawing.Point(432, 149);
+            this.dateProtectionTextBox.Mask = "0000-00-00";
+            this.dateProtectionTextBox.Name = "dateProtectionTextBox";
+            this.dateProtectionTextBox.Size = new System.Drawing.Size(97, 24);
+            this.dateProtectionTextBox.TabIndex = 35;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(485, 128);
+            this.label12.Location = new System.Drawing.Point(430, 128);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 18);
             this.label12.TabIndex = 34;
@@ -476,7 +503,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(416, 229);
+            this.label10.Location = new System.Drawing.Point(361, 229);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(169, 18);
             this.label10.TabIndex = 30;
@@ -486,7 +513,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(6, 128);
+            this.label9.Location = new System.Drawing.Point(6, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(199, 18);
             this.label9.TabIndex = 28;
@@ -502,19 +529,19 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "Введите название приказа";
             // 
-            // maskedTextBox4
+            // dateOrderTextBox
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(491, 202);
-            this.maskedTextBox4.Mask = "0000-00-00";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(94, 24);
-            this.maskedTextBox4.TabIndex = 25;
+            this.dateOrderTextBox.Location = new System.Drawing.Point(432, 202);
+            this.dateOrderTextBox.Mask = "0000-00-00";
+            this.dateOrderTextBox.Name = "dateOrderTextBox";
+            this.dateOrderTextBox.Size = new System.Drawing.Size(94, 24);
+            this.dateOrderTextBox.TabIndex = 25;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(488, 181);
+            this.label7.Location = new System.Drawing.Point(432, 181);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 18);
             this.label7.TabIndex = 24;
@@ -524,7 +551,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(197, 25);
+            this.label6.Location = new System.Drawing.Point(6, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(190, 18);
             this.label6.TabIndex = 22;
@@ -561,6 +588,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Учет ВКР";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -592,18 +620,18 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox idTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox10;
+        private System.Windows.Forms.MaskedTextBox rateTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox9;
+        private System.Windows.Forms.MaskedTextBox dateProtectionTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.MaskedTextBox dateOrderTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -617,12 +645,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox actTextBox;
+        private System.Windows.Forms.TextBox titleOrganizationTextBox;
+        private System.Windows.Forms.TextBox titleOrderTextBox;
+        private System.Windows.Forms.TextBox supervisorTextBox;
+        private System.Windows.Forms.TextBox studentTextBox;
+        private System.Windows.Forms.TextBox titleWorkTextBox;
+        private System.Windows.Forms.TextBox groupNameTextBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 

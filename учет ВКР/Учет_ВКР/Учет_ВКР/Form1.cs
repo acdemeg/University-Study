@@ -27,7 +27,6 @@ namespace Учет_ВКР
             myConnection.Open();
         }
 
-
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
@@ -44,6 +43,16 @@ namespace Учет_ВКР
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -69,16 +78,16 @@ namespace Учет_ВКР
         //поиск по руководителю
         private void button2_Click(object sender, EventArgs e)
         {
-            string key = textBox1.Text;
-            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE supervisor = " + "'" + key + "'";
+            string key = "%" + textBox1.Text + "%";
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE supervisor LIKE " + "'" + key + "'";
             GetData(query);
         }
 
         //поиск по студенту
         private void button3_Click(object sender, EventArgs e)
         {
-            string key = textBox1.Text;
-            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE student = " + "'" + key + "'";
+            string key = "%" + textBox1.Text + "%";
+            string query = "SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table WHERE student LIKE " + "'" + key + "'";
             GetData(query); 
         }
 
@@ -100,31 +109,50 @@ namespace Учет_ВКР
         //отчет по группе
         private void button5_Click(object sender, EventArgs e)
         {
-            string key = textBox2.Text;
-            string query = "SELECT student, title_order, rate, act_implementation, data_protection FROM vkr_table WHERE students_group = " + "'" + key + "'";
-            GetReport(query); 
+            string key = textBox2.Text + "%";
+            
+            if(textBox2.Text == "")
+            {
+                listBox1.Items.Add(" Данные отсутствуют!");
+            }
+            else
+            {
+                string query = "SELECT student, title, rate, act_implementation, data_protection FROM vkr_table WHERE students_group LIKE " + "'" + key + "'";
+                GetReport(query); 
+            }
+            
+            
         }
 
         //отчет по предподавателю
         private void button6_Click(object sender, EventArgs e)
         {
-            string key = textBox2.Text;
-            string query = "SELECT student, title_order, rate, act_implementation, data_protection FROM vkr_table WHERE supervisor = " + "'" + key + "'";
-            GetReport(query); 
+            string key = "%" + textBox2.Text + "%";
+
+            if (textBox2.Text == "")
+            {
+                listBox1.Items.Add(" Данные отсутствуют!");
+            }
+            else
+            {
+                string query = "SELECT student, title, rate, act_implementation, data_protection FROM vkr_table WHERE supervisor LIKE " + "'" + key + "'";
+                GetReport(query); 
+            }
+
         }
 
         //отчет по дате защиты
         private void button7_Click(object sender, EventArgs e)
         {
             string key = "#" + textBox2.Text + "#";   //  #YYYY-MM-DD#
-            string query = "SELECT student, title_order, rate, act_implementation, data_protection FROM vkr_table WHERE data_protection = " + key; 
+            string query = "SELECT student, title, rate, act_implementation, data_protection FROM vkr_table WHERE data_protection = " + key; 
             GetReport(query);
         }
 
         private void GetData(string query)
         {
-            //try
-            //{
+            try
+            {
                 // создаем объект OleDbCommand для выполнения запроса к БД MS Access
                 OleDbCommand command = new OleDbCommand(query, myConnection);
 
@@ -153,11 +181,11 @@ namespace Учет_ВКР
 
                 // закрываем OleDbDataReader
                 reader.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    GetData("SELECT student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title");
-            //}
+            }
+            catch (Exception ex)
+            {
+                GetData("SELECT id, student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate FROM vkr_table ORDER BY title");
+            }
             
         }
 
@@ -202,6 +230,105 @@ namespace Учет_ВКР
            
         }
 
+        //insert data
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string student = "'" + studentTextBox.Text + "'" + ",";
+            string title = "'" + titleWorkTextBox.Text + "'" + ",";
+            string date_order = "#" + dateOrderTextBox.Text + "#" + ",";
+            string title_order = "'" + titleOrderTextBox.Text + "'" + ",";
+            string supervisor = "'" + supervisorTextBox.Text + "'" + ",";
+            string act_implementation = "'" + actTextBox.Text + "'" + ",";
+            string organization = "'" + titleOrganizationTextBox.Text + "'" + ",";
+            string date_protection = "#" + dateProtectionTextBox.Text + "#" + ",";
+            string rate = rateTextBox.Text + ",";
+            string students_group = "'" + groupNameTextBox.Text + "'";
 
+
+            string query = "INSERT INTO vkr_table (student, title, data_order, title_order, supervisor, act_implementation, organization, data_protection, rate, students_group)" + 
+                "VALUES (" + student + title + date_order + title_order + supervisor + act_implementation + organization + date_protection + rate + students_group + ")";
+
+            OleDbCommand command = new OleDbCommand(query, myConnection);
+            command.ExecuteNonQuery();
+
+
+            //очистка полей
+            studentTextBox.Clear();
+            titleWorkTextBox.Clear();
+            dateOrderTextBox.Clear();
+            titleOrderTextBox.Clear();
+            supervisorTextBox.Clear();
+            actTextBox.Clear();
+            titleOrganizationTextBox.Clear();
+            dateProtectionTextBox.Clear();
+            rateTextBox.Clear();
+            groupNameTextBox.Clear();
+            idTextBox.Clear();
+        }
+
+        //Updete data
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string student = (studentTextBox.Text == "") ? "" : "student=" + "'" + studentTextBox.Text + "'" + ",";
+            string title = (titleWorkTextBox.Text == "") ? "" : "title=" + "'" + titleWorkTextBox.Text + "'" + ",";
+            string date_order = (dateOrderTextBox.Text == "    -  -") ? "" : "data_order=" + "#" + dateOrderTextBox.Text + "#" + ",";
+            string title_order = (titleOrderTextBox.Text == "") ? "" : "title_order=" + "'" + titleOrderTextBox.Text + "'" + ",";
+            string supervisor = (supervisorTextBox.Text == "") ? "" : "supervisor=" + "'" + supervisorTextBox.Text + "'" + ",";
+            string act_implementation = (actTextBox.Text == "") ? "" : "act_implementation=" + "'" + actTextBox.Text + "'" + ",";
+            string organization = (titleOrganizationTextBox.Text == "") ? "" : "organization=" + "'" + titleOrganizationTextBox.Text + "'" + ",";
+            string date_protection = (dateProtectionTextBox.Text == "    -  -") ? "" : "data_protection=" + "#" + dateProtectionTextBox.Text + "#" + ",";
+            string rate = (rateTextBox.Text == "") ? "" : "rate=" + rateTextBox.Text + ",";
+            string students_group = (groupNameTextBox.Text == "") ? "" : "students_group=" + "'" + groupNameTextBox.Text + "'";
+            string id = "id=" + idTextBox.Text;
+
+
+            string prepareQuery = "UPDATE vkr_table SET " + student + title + date_order + title_order + supervisor
+                + act_implementation + organization + date_protection + rate + students_group + " WHERE " + id;
+
+            int index = prepareQuery.LastIndexOf(",");
+            string query = prepareQuery.Remove(index, 1);
+
+            OleDbCommand command = new OleDbCommand(query, myConnection);
+            command.ExecuteNonQuery();
+
+            //очистка полей
+            studentTextBox.Clear();
+            titleWorkTextBox.Clear();
+            dateOrderTextBox.Clear(); 
+            titleOrderTextBox.Clear();
+            supervisorTextBox.Clear();
+            actTextBox.Clear(); 
+            titleOrganizationTextBox.Clear(); 
+            dateProtectionTextBox.Clear(); 
+            rateTextBox.Clear(); 
+            groupNameTextBox.Clear();
+            idTextBox.Clear();
+            
+
+        }
+
+        //Delete data
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string id = "id=" + idTextBox.Text;
+            
+            string query = "DELETE FROM vkr_table WHERE " + id;
+
+            OleDbCommand command = new OleDbCommand(query, myConnection);
+            command.ExecuteNonQuery();
+
+            //очистка полей
+            studentTextBox.Clear();
+            titleWorkTextBox.Clear();
+            dateOrderTextBox.Clear();
+            titleOrderTextBox.Clear();
+            supervisorTextBox.Clear();
+            actTextBox.Clear();
+            titleOrganizationTextBox.Clear();
+            dateProtectionTextBox.Clear();
+            rateTextBox.Clear();
+            groupNameTextBox.Clear();
+            idTextBox.Clear();
+        }
     }
 }
